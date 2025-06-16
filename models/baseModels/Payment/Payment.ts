@@ -631,10 +631,8 @@ export class Payment extends Transactional {
         }
 
         const reference = this?.for?.[0];
-        if (!reference) {
-          return null;
-        }
-        const refDoc = (await reference.loadAndGetLink(
+
+        const refDoc = (await reference?.loadAndGetLink(
           'referenceName'
         )) as Invoice | null;
 
